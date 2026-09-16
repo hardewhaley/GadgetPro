@@ -81,8 +81,9 @@ products = [
 ]
 
 @app.route('/')
+@app.route('/home')
 def index():
-    home_title="home page"
+    home_title = "home page"
     return render_template('home.html', title=home_title, products=products)
 
 
@@ -114,7 +115,7 @@ def login():
         password = form.password.data
         remember = form.remember.data
 
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     return render_template('login.html', title=login_title, form=form)
 
 @app.route('/product', methods=['GET'])
