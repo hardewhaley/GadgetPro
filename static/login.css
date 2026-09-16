@@ -1,0 +1,179 @@
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+    background: #050505;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: #0d0d0d;
+    padding: 30px;
+    border-radius: 12px;
+    border-top: 5px solid #00aaff;
+    box-shadow: 0 8px 30px rgba(0, 170, 255, 0.15);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.login-header h3::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: #00aaff;
+    border-radius: 5px;
+}
+
+.login-group {
+    margin-bottom: 18px;
+}
+
+.login-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #292929;
+    border-radius: 6px;
+    background: #151515;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+.login-group input:focus {
+    border-color: #00aaff;
+    box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.12);
+}
+
+.login-group input::placeholder {
+    color: #6b7280;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #00aaff;
+}
+
+.login-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.login-check input {
+    width: 15px;
+    height: 15px;
+    accent-color: #00aaff;
+    cursor: pointer;
+}
+
+.login-check label {
+    cursor: pointer;
+}
+
+.errors {
+    margin: 5px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.errors li {
+    color: #00aaff;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.login-container input[type="submit"],
+.login-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #00aaff;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+.login-container input[type="submit"]:hover,
+.login-container button[type="submit"]:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.25);
+}
+
+.login-container input[type="submit"]:active,
+.login-container button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 450px) {
+    .login-page {
+        padding: 25px 12px;
+    }
+
+    .login-container {
+        padding: 25px 18px;
+    }
+
+    .login-header h3 {
+        font-size: 22px;
+    }
+}

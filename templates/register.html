@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="register-page">
+    <div class="register-container">
+        <div class="register-header">
+            <h3>Create an Account</h3>
+            <div class="rule"></div>
+            <p>Fill in your details</p>
+        </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+    {% endwith %}
+    <!-- Registration -->
+     <form action="" method="POST">
+        {{ form.hidden_tag() }}
+
+        <!-- fullname -->
+        <div class="form-group">
+            {{ form.full_name.label }}
+            {{ form.full_name() }}
+            {% if form.full_name.errors %}
+            <ul class="errors">
+                {% for error in form.full_name.errors%}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+                         <!-- email -->
+                  <div class="form-group">
+                    {{ form.email.label }}
+                    {{ form.email() }}
+                    {% if form.email.errors %}
+                    <ul class="errors">
+                        {% for error in form.email.errors %}
+                                <li>{{ error }}</li>
+                         {% endfor %}
+                    </ul>
+                    {% endif%}
+                  </div>
+    
+                  <!-- gender -->
+                   <div class="form-group">
+                       {{ form.gender.label }}
+                       {{ form.gender() }}
+                       {% if form.gender.errors %}
+                       <ul class="errors">
+                            {% for error in form.gender.errors %}
+                                    <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif%}
+                   </div>
+    
+                   <!-- date -->
+                    <div class="form-group">
+                        {{ form.date_of_birth.label }}
+                        {{ form.date_of_birth(type="date") }}
+                        {% if form.date_of_birth.errors %}
+                        <ul class="errors">
+                            {% for error in form.date_of_birth.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif%}
+                    </div>
+    
+                    <!-- password -->
+ <div class="form-group">
+    {{ form.password.label }}
+    <div class="password-wrapper">
+        {{ form.password(id="password") }}
+        <span class="toggle-password" onclick="togglePassword('password', this)">
+            <i class="fa fa-eye"></i>
+        </span>
+    </div>
+    {% if form.password.errors %}
+    <ul class="errors">
+        {% for error in form.password.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif%}
+ </div>
+
+        <!-- confirm_password -->
+ <div class="form-group">
+    {{ form.confirm_password.label }}
+    <div class="password-wrapper">
+        {{ form.confirm_password(id="confirm_password") }}
+        <span class="toggle-password" onclick="togglePassword('confirm_password', this)">
+            <i class="fa fa-eye"></i>
+        </span>
+    </div>
+    {% if form.confirm_password.errors %}
+    <ul class="errors">
+        {% for error in form.confirm_password.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif%}
+ </div>
+    
+                     <!-- Accept -->
+                    <div class="form-check">
+                        {{ form.accept_terms() }}
+                        {{ form.accept_terms.label }}
+                        {% if form.accept_terms.errors %}
+                        <ul class="errors">
+                            {% for error in form.accept_terms.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    {{ form.submit() }}
+     </form>
+     <p class="login-link">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='register.js') }}"></script>
+{% endblock %}
