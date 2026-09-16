@@ -80,8 +80,8 @@ products = [
     },
 ]
 
-@app.route('/home')
-def home():
+@app.route('/')
+def index():
     home_title="home page"
     return render_template('home.html', title=home_title, products=products)
 
