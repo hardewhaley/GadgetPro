@@ -1,0 +1,114 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<section class="cart-page">
+
+    <div class="cart-header">
+        <h1>Your Order</h1>
+        <p>Review your items below, then complete your details to place the order.</p>
+    </div>
+
+    <div class="cart-container">
+
+        <div class="order-items-panel">
+
+            <h2>Order Items</h2>
+
+            <div class="order-table">
+
+                <div class="order-table-head">
+                    <span>Product</span>
+                    <span>Price</span>
+                    <span>Quantity</span>
+                    <span>Total</span>
+                    <span>Remove</span>
+                </div>
+
+                <div class="order-table-body" id="cartItems">
+                    <!-- rows injected by cart.js -->
+                </div>
+
+            </div>
+
+            <div class="order-summary-lines">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">₦0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span id="deliveryFee">₦0</span>
+                </div>
+                <div class="summary-line"></div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="cartTotal">₦0</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="delivery-panel">
+
+            <h2>Delivery Details</h2>
+
+            <form method="POST" action="{{ url_for('cart') }}">
+
+                <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <textarea id="address" name="address" rows="3" placeholder="Enter your full delivery address" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment_method">Payment Method</label>
+                    <select id="payment_method" name="payment_method" required>
+                        <option value="" disabled selected>Select payment method</option>
+                        <option value="card">Card</option>
+                        <option value="transfer">Bank Transfer</option>
+                        <option value="cash">Cash on Delivery</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Order Notes (optional)</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any special instructions?"></textarea>
+                </div>
+
+                <button type="submit" class="place-order-btn">
+                    Place Order
+                </button>
+
+            </form>
+
+            <a href="#" class="whatsapp-btn">
+                <i class="fa-brands fa-whatsapp"></i>
+                Place Order via WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="empty-cart" id="emptyCart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h2>Your Cart is Empty</h2>
+        <p>You haven't added any products to your cart yet.</p>
+        <a href="{{ url_for('home') }}" class="shop-btn">Start Shopping</a>
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='cart.js') }}"></script>
+
+{% endblock %}

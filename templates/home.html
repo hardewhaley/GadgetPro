@@ -261,14 +261,19 @@
         <div class="product-card" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
             <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
             <h3>{{ product.name }}</h3>
-            <p class="product-price">{{ product.price }}</p>
+            <p class="product-price">₦{{ "{:,}".format(product.price) }}</p>
             <p class="product-qty">
                 QTY: {{ product.qty }}
             </p>
             <p class="product-description">
                 {{ product.description }}
             </p>
-            <button type="button">
+            <button type="button"
+                class="add-to-cart-btn"
+                data-id="{{ product.id }}"
+                data-name="{{ product.name }}"
+                data-price="{{ product.price }}"
+                data-image="{{ product.image }}">
                 {{ product.button }}
             </button>
         </div>

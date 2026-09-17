@@ -7,72 +7,81 @@ app.config['SECRET_KEY'] = 'bc751ff51ae622efd5e458c12a43897c'
 
 products = [
     {
-        "name":"Wireless Headphones",
-        "price": "₦35,000",
+        "id": 1,
+        "name": "Wireless Headphones",
+        "price": 35000,
         "qty": 10,
         "description": "High-quality wireless headphones with clear sound, deep bass, comfortable ear cushions, & long battery life",
         "button": "Add to Cart",
         "image": "/static/images/headphone.png"
     },
     {
-        "name":"Portable Bluetooth Speaker",
-        "price": "₦25,000",
+        "id": 2,
+        "name": "Portable Bluetooth Speaker",
+        "price": 25000,
         "qty": 15,
         "description": "Compact portable speaker with powerful sound, strong bass, Bluetooth connectivity, and a rechargeable battery.",
         "button": "Add to Cart",
         "image": "/static/images/bluetooth.png"
     },
     {
-        "name":"Smart Fitness Watch",
-        "price": "₦45,000",
+        "id": 3,
+        "name": "Smart Fitness Watch",
+        "price": 45000,
         "qty": 20,
         "description": "Stylish smartwatch with fitness tracking, notifications, multiple watch faces, and long-lasting battery.",
         "button": "Add to Cart",
         "image": "/static/images/watch.png"
     },
     {
-        "name":"20,000mAh Fast-Charging Power Bank",
-        "price": "₦18,000",
+        "id": 4,
+        "name": "20,000mAh Fast-Charging Power Bank",
+        "price": 18000,
         "qty": 5,
         "description": "High-capacity power bank designed to charge smartphones and other compatible devices quickly while on the go.",
         "button": "Add to Cart",
         "image": "/static/images/power.png"
     },
     {
-        "name":"Ergonomic Wireless Mouse",
-        "price": "₦12,000",
+        "id": 5,
+        "name": "Ergonomic Wireless Mouse",
+        "price": 12000,
         "qty": 22,
         "description": "Comfortable wireless mouse with precise tracking, smooth navigation, and reliable wireless connectivity.",
         "button": "Add to Cart",
         "image": "/static/images/mouse.png"
     },
     {
-        "name":"RGB Mechanical Gaming Keyboard",
-        "price": "₦30,000",
+        "id": 6,
+        "name": "RGB Mechanical Gaming Keyboard",
+        "price": 30000,
         "qty": 22,
         "description": "Responsive mechanical keyboard with RGB lighting, durable keys, and a comfortable design for gaming and typing.",
         "button": "Add to Cart",
         "image": "/static/images/keyboard.png"
     },
     {
-        "name":"25W Fast Phone Charger",
-        "price": "₦10,000",
+        "id": 7,
+        "name": "25W Fast Phone Charger",
+        "price": 10000,
         "qty": 22,
         "description": "Compact fast charger designed to provide efficient and reliable charging for compatible smartphones and devices.",
         "button": "Add to Cart",
         "image": "/static/images/charger.png"
     },
     {
-        "name":"Premium USB-C Fast Charging Cable",
-        "price": "₦7,000",
+        "id": 8,
+        "name": "Premium USB-C Fast Charging Cable",
+        "price": 7000,
         "qty": 22,
         "description": "Durable USB-C cable designed for fast charging and reliable data transfer.",
         "button": "Add to Cart",
         "image": "/static/images/cord.png"
     },
     {
-        "name":"Adjustable Aluminium Laptop Stand",
-        "price": "₦20,000",
+        "id": 9,
+        "name": "Adjustable Aluminium Laptop Stand",
+        "price": 20000,
         "qty": 22,
         "description": "Strong adjustable laptop stand designed to provide a comfortable viewing position and improve your workspace setup.",
         "button": "Add to Cart",
@@ -82,7 +91,7 @@ products = [
 
 @app.route('/')
 @app.route('/home')
-def index():
+def home():
     home_title = "home page"
     return render_template('home.html', title=home_title, products=products)
 
@@ -122,6 +131,10 @@ def login():
 def product():
     product_title='product page'
     return render_template('product.html', title=product_title, products=products)
+
+@app.route('/cart')
+def cart():
+    return render_template('cart.html')
 
 
 
